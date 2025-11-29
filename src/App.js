@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -14,7 +13,7 @@ import Shop from './pages/Shop';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
@@ -27,7 +26,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
