@@ -1,30 +1,43 @@
-import React, { useDebugValue, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import el from "../assets/el.png";
 import axios from "axios";
 
 export default function SignIn() {
-  const [username, settUsername] = useState()
-  const [password, setPassword] = useState()
-  const [hidden, setHidden] = useState(true)
+  const navigate = useNavigate();
 
-  const login = () => {
- const loginData = {
-      username,
-      password,
-      expiresInMins: 30
-    }
-
-    console.log(loginData, "LOGINDATA");
-    
-
-    axios.post("https://dummyjson.com/auth/login", loginData).then((r) => {setHidden(false)}).catch((e) => console.log(e, "e"));
-    
-  }
-
-
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [hidden, setHidden] = useState(true);
+  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  const login = () => {
+    if (!username || !password) {
+      setError("⚠️ Please enter both username and password.");
+      return;
+    }
+
+    const loginData = {
+      username,
+      password,
+      expiresInMins: 30,
+    };
+
+    console.log(loginData, "LOGINDATA");
+
+    axios
+      .post("https://dummyjson.com/auth/login", loginData)
+      .then((r) => {
+        setHidden(false);
+        setError("");
+        navigate("/"); // يروح للـ Home بعد نجاح تسجيل الدخول
+      })
+      .catch((e) => {
+        console.log(e, "e");
+        setError("❌ Login failed. Please check your credentials.");
+      });
+  };
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
@@ -53,12 +66,13 @@ export default function SignIn() {
             </Link>
           </p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               placeholder="Your username or email address"
               className="w-full border-b border-gray-300 py-2 focus:outline-none"
-              onChange={(e) => {settUsername(e.target.value)}}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
 
             <div className="relative">
@@ -66,7 +80,8 @@ export default function SignIn() {
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 className="w-full border-b border-gray-300 py-2 focus:outline-none"
-                onChange={(e) => {setPassword(e.target.value)}}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}
@@ -85,6 +100,7 @@ export default function SignIn() {
               </a>
             </div>
 
+            {/* زر تسجيل الدخول */}
             <button
               type="button"
               className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
@@ -93,7 +109,11 @@ export default function SignIn() {
               Sign In
             </button>
           </form>
-          
+
+          {/* رسالة الخطأ */}
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
+          {/* رسالة النجاح */}
           {!hidden && (
             <div className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 mt-4 text-center">
               SUCCESS
