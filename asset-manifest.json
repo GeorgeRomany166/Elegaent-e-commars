@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Elegaent-e-commars/static/css/main.da86b5f4.css",
-    "main.js": "/Elegaent-e-commars/static/js/main.e509c489.js",
+    "main.js": "/Elegaent-e-commars/static/js/main.01da9684.js",
     "static/js/453.2e5ebd0b.chunk.js": "/Elegaent-e-commars/static/js/453.2e5ebd0b.chunk.js",
     "static/media/creative.png": "/Elegaent-e-commars/static/media/creative.2da1041cd0a08b83cd8b.png",
     "static/media/el.png": "/Elegaent-e-commars/static/media/el.6794a2ddd79b8b65668a.png",
@@ -9,11 +9,11 @@
     "static/media/depositphotos_223901236-stock-photo-flat-lay-different-wireless-devices.jpg": "/Elegaent-e-commars/static/media/depositphotos_223901236-stock-photo-flat-lay-different-wireless-devices.a4c6cb9180d47a78c7ff.jpg",
     "index.html": "/Elegaent-e-commars/index.html",
     "main.da86b5f4.css.map": "/Elegaent-e-commars/static/css/main.da86b5f4.css.map",
-    "main.e509c489.js.map": "/Elegaent-e-commars/static/js/main.e509c489.js.map",
+    "main.01da9684.js.map": "/Elegaent-e-commars/static/js/main.01da9684.js.map",
     "453.2e5ebd0b.chunk.js.map": "/Elegaent-e-commars/static/js/453.2e5ebd0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da86b5f4.css",
-    "static/js/main.e509c489.js"
+    "static/js/main.01da9684.js"
   ]
 }
