@@ -90,18 +90,19 @@ const Navbar = () => {
         <a onClick={() => navigate('/')} className="hover:text-black transition cursor-pointer">Home</a>
         <a onClick={() => navigate('/shop')} className="hover:text-black transition cursor-pointer">Shop</a>
         <a onClick={() => navigate('/contact')} className="hover:text-black transition cursor-pointer">Contact Us</a>
-        <a
-          href="/signin"
-          className="hover:text-black transition px-4 py-1 border border-gray-700 rounded text-gray-700 hover:bg-gray-200"
-        >
-          Sign In
-        </a>
-        <a
-          href="/signup"
-          className="hover:text-black transition px-4 py-1 border border-gray-700 rounded text-gray-700 hover:bg-gray-200"
-        >
-          Sign Up
-        </a>
+         <button
+        onClick={() => navigate("/SignIn")}
+        className="hover:text-black transition px-4 py-1 border border-gray-700 rounded text-gray-700 hover:bg-gray-200"
+      >
+        Sign In
+      </button>
+
+      <button
+        onClick={() => navigate("/SignUp")}
+        className="hover:text-black transition px-4 py-1 border border-gray-700 rounded text-gray-700 hover:bg-gray-200"
+      >
+        Sign Up
+      </button>
       </nav>
 
       {/* Hamburger Menu - Mobile */}

@@ -160,14 +160,16 @@
           className="rounded-lg w-full h-[270px] object-cover"
         />
         
-        <a
-          href="/Shop"
-          className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1"
-        >
-                  Men's Clothing
-  →
-        </a>
-      </div>
+          <a
+      onClick={(e) => {
+        e.preventDefault();
+        navigate("/Shop"); // نفس المسار اللي كان في الـ href
+      }}
+      className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1 cursor-pointer"
+    >
+     Men's Clothing →
+    </a>
+      </div> 
 
       {/* Women's Clothing */}
       <div className="bg-gray-100 p-1 rounded-lg cursor-pointer hover:shadow-lg transition relative">
@@ -177,13 +179,16 @@
           className="rounded-lg w-full h-[270px] object-cover"
         />
         
-        <a
-          href="/Shop"
-          className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1"
-        >
-          Women's Clothing →
-        </a>
-      </div>
+          <a
+      onClick={(e) => {
+        e.preventDefault();
+        navigate("/Shop"); // نفس المسار اللي كان في الـ href
+      }}
+      className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1 cursor-pointer"
+    >
+     Women's Clothing →
+    </a>
+      </div> 
 
       {/* Jewelry */}
       <div className="bg-gray-100 p-1 rounded-lg cursor-pointer hover:shadow-lg transition relative">
@@ -193,12 +198,15 @@
           className="rounded-lg w-full h-[270px] object-cover"
         />
       
-        <a
-          href="/Shop"
-          className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1"
-        >
-          Jewelry →
-        </a>
+          <a
+      onClick={(e) => {
+        e.preventDefault();
+        navigate("/Shop"); // نفس المسار اللي كان في الـ href
+      }}
+      className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1 cursor-pointer"
+    >
+      Jewelry →
+    </a>
       </div>
 
       {/* Electronics */}
@@ -209,12 +217,15 @@
           className="rounded-lg w-full h-[270px] object-cover"
         />
     
-        <a
-          href="/Shop"
-          className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1"
-        >
-            Electronics →
-        </a>
+          <a
+      onClick={(e) => {
+        e.preventDefault();
+        navigate("/Shop"); // نفس المسار اللي كان في الـ href
+      }}
+      className="absolute bottom-6 left-6 text-[0.8rem] font-semibold text-black border-b border-black inline-flex items-center gap-1 cursor-pointer"
+    >
+      Electronics →
+    </a>
       </div>
     </section>
 
@@ -222,12 +233,15 @@
   <section className="mt-20">
     <div className="flex justify-between items-center mb-6">
       <h3 className="text-2xl font-bold">New Arrivals</h3>
-      <a
-        href="#"
-        className="text-sm text-gray-700 font-semibold hover:text-black inline-flex items-center gap-1"
-      >
-        More Products →
-      </a>
+       <a
+      onClick={(e) => {
+        e.preventDefault();
+        navigate("/shop"); // ← حط الصفحة اللي عايز تروح لها
+      }}
+      className="text-sm text-gray-700 font-semibold hover:text-black inline-flex items-center gap-1 cursor-pointer"
+    >
+      More Products →
+    </a>
     </div>
 
     {/* Swiper Slider */}
@@ -337,11 +351,14 @@
                 It's more affordable than ever to give what ever you wanted
               </p>
               <a
-                href="/shop"
-                className="text-sm font-semibold underline hover:text-black inline-flex items-center gap-1"
-              >
-                Shop Now →
-              </a>
+      onClick={(e) => {
+        e.preventDefault();
+        navigate("/shop");
+      }}
+      className="text-sm font-semibold underline hover:text-black inline-flex items-center gap-1 cursor-pointer"
+    >
+      Shop Now →
+    </a>
             </div>
           </section>
 

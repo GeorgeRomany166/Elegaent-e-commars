@@ -129,9 +129,7 @@ const ProductDetail = () => {
       <div className="py-4 text-sm text-gray-600">
         <span onClick={() => navigate('/')} className="cursor-pointer hover:text-black">Home</span>
         <span className="mx-2">›</span>
-        <span className="cursor-pointer hover:text-black">Shop</span>
-        <span className="mx-2">›</span>
-        <span className="cursor-pointer hover:text-black">Living Room</span>
+        <span onClick={() => navigate('/shop')} className="cursor-pointer hover:text-black">Shop</span>
         <span className="mx-2">›</span>
         <span className="text-black font-semibold">Product</span>
       </div>

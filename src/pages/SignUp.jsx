@@ -1,14 +1,31 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // استيراد useNavigate
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import el from "../assets/el.png";
 
 export default function SignUp() {
-  const navigate = useNavigate(); // تعريف navigate
+  const navigate = useNavigate();
+
+  // ---------------------------
+  // States للتحقق من البيانات
+  // ---------------------------
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // منع الفورم من إعادة التحميل
-    // هنا ممكن تضيف أي كود تسجيل بيانات المستخدم
-    navigate("/"); // بعد الضغط على Sign Up، يروح للـ Home
+    e.preventDefault();
+
+    // التحقق من ملء كل البيانات
+    if (!name || !username || !email || !password || !agree) {
+      setError("⚠️ Please fill all fields and accept the Privacy Policy.");
+      return;
+    }
+
+    setError(""); // لو مفيش مشاكل
+    navigate("/"); // يروح للـ Home
   };
 
   return (
@@ -31,6 +48,7 @@ export default function SignUp() {
           <h2 className="text-3xl font-semibold mb-2 text-center md:text-left">
             Sign up
           </h2>
+
           <p className="text-sm text-gray-500 mb-6 text-center md:text-left">
             Already have an account?{" "}
             <Link to="/signin" className="text-green-600">
@@ -42,22 +60,33 @@ export default function SignUp() {
             <input
               type="text"
               placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full border-b border-gray-300 py-2 focus:outline-none"
             />
+
             <input
               type="text"
               placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full border-b border-gray-300 py-2 focus:outline-none"
             />
+
             <input
               type="email"
               placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full border-b border-gray-300 py-2 focus:outline-none"
             />
+
             <div className="relative">
               <input
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full border-b border-gray-300 py-2 focus:outline-none"
               />
               <span className="absolute right-2 top-2 text-gray-400 cursor-pointer">
@@ -66,11 +95,19 @@ export default function SignUp() {
             </div>
 
             <div className="flex items-start text-sm text-gray-600">
-              <input type="checkbox" className="mr-2 mt-1" />
+              <input
+                type="checkbox"
+                checked={agree}
+                onChange={() => setAgree(!agree)}
+                className="mr-2 mt-1"
+              />
               <span>
                 I agree with <b>Privacy Policy</b> and <b>Terms of Use</b>
               </span>
             </div>
+
+            {/* رسالة الخطأ */}
+            {error && <p className="text-red-500 text-sm">{error}</p>}
 
             <button
               type="submit"
